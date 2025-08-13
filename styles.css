@@ -1713,18 +1713,6 @@ section:not(:first-child)::before {
     }
 }
 
-.card-icon-contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;       /* Deutlich kleiner als 80px */
-  height: 40px;      /* Deutlich kleiner als 80px */
-  background-color: #4a4a4a; /* Gleiche Hintergrundfarbe */
-  border-radius: 8px;    /* Leicht verkleinerter Radius */
-}
-
-.card-icon-contact svg {
-  width: 20px;       /* Größe des Icons selbst */
-  height: 20px;
-  color: white;      /* Gleiche Iconfarbe */
+.light-theme .method-icon {
+  color: black;
 }
