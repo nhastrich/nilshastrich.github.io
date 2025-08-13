@@ -2,7 +2,7 @@
 class WebsiteState {
     constructor() {
         this.currentTheme = localStorage.getItem('theme') || 'dark';
-        this.currentLang = localStorage.getItem('language') || 'de';
+        this.currentLang = localStorage.getItem('language') || 'en';
         this.init();
     }
 
