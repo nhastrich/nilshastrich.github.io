@@ -1726,3 +1726,10 @@ section:not(:first-child)::before {
   
   margin-left: 20px; /* Du kannst "20px" durch jeden gewünschten Wert ersetzen */
 }
+
+.mobile-menu-toggle {
+  /* ... deine bisherigen Stile für den Button ... */
+  
+  position: relative; /* Wichtig für die z-index-Funktion */
+  z-index: 1001;      /* Stellt sicher, dass der Button über dem Menü (z-index: 999) liegt */
+}
