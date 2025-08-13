@@ -252,7 +252,7 @@ class WebsiteState {
     }
 
     // Animation Initialization
-    initAnimations() {
+/*    initAnimations() {
         // Add CSS classes for scroll animations
         const style = document.createElement('style');
         style.textContent = `
@@ -316,7 +316,7 @@ class WebsiteState {
             }
         `;
         document.head.appendChild(style);
-    }
+    } */
 
     // Video Background Management
     initVideoBackground() {

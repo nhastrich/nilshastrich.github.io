@@ -766,7 +766,7 @@ section:not(:first-child)::before {
     box-shadow: 0 5px 20px var(--shadow-light);
     border: 2px solid var(--border-color);
     will-change: transform, opacity;
-    transition: all 0.8s ease-out;
+  /*  transition: all 0.8s ease-out; */
     opacity: 1;
     transform: translateX(0);
 }
