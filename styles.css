@@ -214,7 +214,6 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     color: var(--primary-text);
-    margin-left: 200px;
 }
 
 .theme-toggle:hover, .lang-toggle:hover {
@@ -1720,4 +1719,10 @@ section:not(:first-child)::before {
 
 .light-theme .method-icon {
   color: black !important;
+}
+
+.theme-toggle {
+  /* ... andere Stile wie border, width, height etc. ... */
+  
+  margin-left: 20px; /* Du kannst "20px" durch jeden gewünschten Wert ersetzen */
 }
