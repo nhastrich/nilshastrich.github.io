@@ -7,12 +7,16 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="light-theme" data-lang="de">
+<body class="dark-theme" data-lang="de">
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
                 <img src="logo-icon.jpg" alt="Logo" class="nav-logo-icon">
                 <span class="brand-text" data-de="Nils Hastrich" data-en="Nils Hastrich">Nils Hastrich</span>
+                <button class="theme-toggle mobile-visible-theme-toggle" id="mobileThemeToggle">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </button>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" data-de="Start" data-en="Home">Start</a></li>
@@ -65,7 +69,7 @@
     <main>
         <section id="home" class="hero">
             <div class="hero-background">
-                <video class="hero-video" autoplay muted loop playsinline poster="">
+                <video class="hero-video" autoplay muted loop playsinline webkit-playsinline poster="">
                     <source src="background-video.mp4" type="video/mp4">
                     <source src="background-video.webm" type="video/webm">
                     <div class="video-fallback">

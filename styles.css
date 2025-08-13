@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+/* Prevent horizontal overflow on all elements */
+*, *::before, *::after {
+    max-width: 100%;
+}
+
 *::before,
 *::after {
     box-sizing: border-box;
@@ -18,6 +23,8 @@ html, body {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -27,6 +34,8 @@ body {
     transition: background-color var(--transition-duration, 0.2s) ease, 
                 color var(--transition-duration, 0.2s) ease;
     font-weight: 400;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* CSS Variables for Themes */
@@ -122,6 +131,10 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.mobile-visible-theme-toggle {
+    display: none;
 }
 
 .nav-logo-icon {
@@ -391,6 +404,20 @@ body {
     transform: translate(-50%, -50%);
     object-fit: cover;
     z-index: -3;
+    /* iOS Safari video fixes */
+    -webkit-playsinline: true;
+}
+
+.hero-video::-webkit-media-controls {
+    display: none !important;
+}
+
+.hero-video::-webkit-media-controls-panel {
+    display: none !important;
+}
+
+.hero-video::-webkit-media-controls-play-button {
+    display: none !important;
 }
 
 .video-fallback {
@@ -400,7 +427,7 @@ body {
     width: 100%;
     height: 100%;
     background: var(--secondary-bg);
-    z-index: -4;
+    z-index: -2;
 }
 
 .animated-background {
@@ -1528,6 +1555,11 @@ section:not(:first-child)::before {
     
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .mobile-visible-theme-toggle {
+        display: flex;
+        margin-left: auto;
     }
     
     .hero {
