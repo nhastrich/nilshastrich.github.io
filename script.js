@@ -1,7 +1,7 @@
 // Global State Management
 class WebsiteState {
     constructor() {
-        this.currentTheme = localStorage.getItem('theme') || 'light';
+        this.currentTheme = localStorage.getItem('theme') || 'dark';
         this.currentLang = localStorage.getItem('language') || 'de';
         this.init();
     }
