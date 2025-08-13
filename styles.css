@@ -1714,9 +1714,9 @@ section:not(:first-child)::before {
 }
 
 .method-icon {
-  fill: white;
+  color: white;
 }
 
 .light-theme .method-icon {
-  fill: black;
+  color: black;
 }
