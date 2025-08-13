@@ -1713,6 +1713,10 @@ section:not(:first-child)::before {
     }
 }
 
+.method-icon {
+  color: white;
+}
+
 .light-theme .method-icon {
   color: black;
 }
