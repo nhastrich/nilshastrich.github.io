@@ -608,9 +608,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log('Website initialized successfully!');
 
-    let header_video = document.getElementById('video_1');
 
-    header_video.addEventListener('suspend', () => {
-        header_video.play()
-    })
 });
