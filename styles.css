@@ -1718,5 +1718,5 @@ section:not(:first-child)::before {
 }
 
 .light-theme .method-icon {
-  color: black;
+  color: black !important;
 }
