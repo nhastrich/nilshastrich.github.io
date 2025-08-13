@@ -10,7 +10,7 @@ class WebsiteState {
         this.applyTheme();
         this.applyLanguage();
         this.setupEventListeners();
-        this.initAnimations();
+        // this.initAnimations();
         this.initScrollEffects();
         this.initVideoBackground();
     }
