@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nils Hastrich</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme" data-lang="de">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="logo-icon.jpg" alt="Logo" class="nav-logo-icon">
+                <span class="brand-text" data-de="Nils Hastrich" data-en="Nils Hastrich">Nils Hastrich</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-de="Start" data-en="Home">Start</a></li>
+                <li><a href="#journey" class="nav-link" data-de="Stationen" data-en="Journey">Stationen</a></li>
+                <li><a href="#moments" class="nav-link" data-de="Schlüsselmomente" data-en="Key Moments">Schlüsselmomente</a></li>
+                <li><a href="#drive" class="nav-link" data-de="Motivation" data-en="Motivation">Motivation</a></li>
+                <li><a href="#why" class="nav-link" data-de="Warum ich" data-en="Why Me">Warum ich</a></li>
+                <li><a href="#contact" class="nav-link" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-option active">DE</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option">EN</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        <div class="mobile-menu">
+            <ul class="mobile-nav-menu">
+                <li><a href="#home" class="mobile-nav-link" data-de="Start" data-en="Home">Start</a></li>
+                <li><a href="#journey" class="mobile-nav-link" data-de="Stationen" data-en="Journey">Stationen</a></li>
+                <li><a href="#moments" class="mobile-nav-link" data-de="Schlüsselmomente" data-en="Key Moments">Schlüsselmomente</a></li>
+                <li><a href="#drive" class="mobile-nav-link" data-de="Motivation" data-en="Motivation">Motivation</a></li>
+                <li><a href="#why" class="mobile-nav-link" data-de="Warum ich" data-en="Why Me">Warum ich</a></li>
+                <li><a href="#contact" class="mobile-nav-link" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+            </ul>
+            <div class="mobile-controls">
+                <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle">
+                    <span class="theme-icon sun">☀️</span>
+                    <span class="theme-icon moon">🌙</span>
+                </button>
+                <button class="lang-toggle mobile-lang-toggle" id="mobileLangToggle">
+                    <span class="lang-option active">DE</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option">EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-background">
+                <video class="hero-video" autoplay muted loop playsinline poster="">
+                    <source src="background-video.mp4" type="video/mp4">
+                    <source src="background-video.webm" type="video/webm">
+                    <div class="video-fallback">
+                        <div class="animated-background">
+                            <div class="bg-shape bg-shape-1"></div>
+                            <div class="bg-shape bg-shape-2"></div>
+                            <div class="bg-shape bg-shape-3"></div>
+                            <div class="bg-shape bg-shape-4"></div>
+                            <div class="bg-shape bg-shape-5"></div>
+                        </div>
+                    </div>
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line" data-de="Komplexe Herausforderungen" data-en="Complex Challenges">Komplexe Herausforderungen</span>
+                        <span class="title-line" data-de="übersetzt in " data-en="translated into ">übersetzt in </span><span class="title-line highlight" data-de="klare Strategien" data-en="Clear Strategies">klare Strategien</span>
+                        
+                    </h1>
+                    <p class="hero-subtitle" data-de="Angetrieben von intellektueller Neugier und dem Streben nach messbaren Ergebnissen, verbinde ich analytische Tiefe mit unternehmerischem Handeln." data-en="Driven by intellectual curiosity and a commitment to measurable results, I combine analytical depth with entrepreneurial action.">
+                        Angetrieben von intellektueller Neugier und dem Streben nach messbaren Ergebnissen, verbinde ich analytische Tiefe mit unternehmerischem Handeln.
+                    </p>
+                    <div class="hero-cta">
+                        <button class="cta-primary" data-de="Meine Projekte entdecken" data-en="Discover My Projects">Meine Projekte entdecken</button>
+                        <button class="cta-secondary" data-de="Direkt zum Kontakt" data-en="Contact Directly">Direkt zum Kontakt</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-shapes"></div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span data-de="Scrollen" data-en="Scroll">Scrollen</span>
+            </div>
+        </section>
+
+        <section id="journey" class="journey">
+            <div class="container">
+                <h2 class="section-title" data-de="Meine Stationen" data-en="My Journey">Meine Stationen</h2>
+                <div class="journey-timeline">
+                    <div class="timeline-item" data-year="2022-2025">
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-book-half" viewBox="0 0 16 16">
+                                    <path d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+                                  </svg>
+                            </div>
+                            <h3 data-de="Akademische Grundlage" data-en="Academic Foundation">Akademische Grundlage</h3>
+                            <p data-de="Studium der Betriebswirtschaftslehre an der Universität Mannheim mit Auslandssemester an der Stellenbosch University (Südafrika)." data-en="Studies in Business Administration at the University of Mannheim with a semester abroad at Stellenbosch University (South Africa).">
+                                Studium der Betriebswirtschaftslehre an der Universität Mannheim mit Auslandssemester an der Stellenbosch University (Südafrika).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-year="2023">
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-fill" viewBox="0 0 16 16">
+  <path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849"/>
+</svg>
+                            </div>
+                            <h3 data-de="Konzernstrategie bei Lufthansa" data-en="Corporate Strategy at Lufthansa">Konzernstrategie bei Lufthansa</h3>
+                            <p data-de="Mitwirkung an der Strategieleitlinie und Erstellung von Berichten für den Vorstand. Entwicklung eines Tools zur Effizienzsteigerung im Portfoliomanagement." data-en="Contributed to strategic guidelines and prepared reports for the executive board. Developed a tool to increase efficiency in portfolio management.">
+                                Mitwirkung an der Strategieleitlinie und Erstellung von Berichten für den Vorstand. Entwicklung eines Tools zur Effizienzsteigerung im Portfoliomanagement.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-year="2024">
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+  <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.5.5 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89zM3.777 3h8.447L8 1zM2 6v7h1V6zm2 0v7h2.5V6zm3.5 0v7h1V6zm2 0v7H12V6zM13 6v7h1V6zm2-1V4H1v1zm-.39 9H1.39l-.25 1h13.72z"/>
+</svg>
+                            </div>
+                            <h3 data-de="Beratungspraxis bei zeb" data-en="Consulting Practice at zeb">Beratungspraxis bei zeb</h3>
+                            <p data-de="Als Visiting Consultant an einem Projekt zur strategischen Preisgestaltung für einen DAX-Konzern mitgewirkt und ins Förderprogramm 'zeb.talents' aufgenommen worden." data-en="As a Visiting Consultant, contributed to a strategic pricing project for a DAX company and was accepted into the 'zeb.talents' program.">
+                                Als Visiting Consultant an einem Projekt zur strategischen Preisgestaltung für einen DAX-Konzern mitgewirkt und ins Förderprogramm 'zeb.talents' aufgenommen worden.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-year="2025">
+                        <div class="timeline-content">
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-nut-fill" viewBox="0 0 16 16">
+  <path d="M4.58 1a1 1 0 0 0-.868.504l-3.428 6a1 1 0 0 0 0 .992l3.428 6A1 1 0 0 0 4.58 15h6.84a1 1 0 0 0 .868-.504l3.429-6a1 1 0 0 0 0-.992l-3.429-6A1 1 0 0 0 11.42 1zm5.018 9.696a3 3 0 1 1-3-5.196 3 3 0 0 1 3 5.196"/>
+</svg>
+                            </div>
+                            <h3 data-de="Business Development bei Würth" data-en="Business Development at Würth">Business Development bei Würth</h3>
+                            <p data-de="Arbeit an internationalen Projekten zur Steigerung von Marktanteilen in Europa und wirtschaftliche Überarbeitung einer zentralen Produktgruppe." data-en="Worked on international projects to increase market share in Europe and conducted an economic overhaul of a key product group.">
+                                Arbeit an internationalen Projekten zur Steigerung von Marktanteilen in Europa und wirtschaftliche Überarbeitung einer zentralen Produktgruppe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="moments" class="moments">
+            <div class="container">
+                <h2 class="section-title" data-de="Schlüsselmomente" data-en="Key Moments">Schlüsselmomente</h2>
+                <div class="moments-grid">
+                    <div class="moment-card">
+                        <div class="moment-visual">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+</svg>
+                        </div>
+                        <div class="moment-content">
+                            <h3 data-de="Soziales Engagement" data-en="Social Engagement">Soziales Engagement</h3>
+                            <p data-de="Organisation und Durchführung von Nachhilfe für benachteiligte Kinder in einer südafrikanischen Township-Schule." data-en="Organized and provided tutoring for underprivileged children in a South African township school.">
+                                Organisation und Durchführung von Nachhilfe für benachteiligte Kinder in einer südafrikanischen Township-Schule.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moment-card">
+                        <div class="moment-visual">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-start-fill" viewBox="0 0 16 16">
+  <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0z"/>
+</svg>
+                        </div>
+                        <div class="moment-content">
+                            <h3 data-de="Gründung der Webagentur" data-en="Founding a Web Agency">Gründung der Webagentur</h3>
+                            <p data-de="Eigenständige Entwicklung eines Geschäftsmodells, Durchführung von Marketingstrategien und erfolgreiche Kundenakquise." data-en="Independently developed a business model, executed marketing strategies, and successfully acquired clients.">
+                                Eigenständige Entwicklung eines Geschäftsmodells, Durchführung von Marketingstrategien und erfolgreiche Kundenakquise.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moment-card">
+                        <div class="moment-visual">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16">
+  <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207"/>
+  <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+</svg>
+                        </div>
+                        <div class="moment-content">
+                            <h3 data-de="Führung & Verantwortung" data-en="Leadership & Responsibility">Führung & Verantwortung</h3>
+                            <p data-de="Als Finanzvorstand der Studierendenvertretung Verantwortung für ein fünfstelliges Jahresbudget übernommen." data-en="As CFO of the student union, assumed responsibility for a five-figure annual budget.">
+                                Als Finanzvorstand der Studierendenvertretung Verantwortung für ein fünfstelliges Jahresbudget übernommen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="drive" class="drive">
+            <div class="container">
+                <h2 class="section-title" data-de="Was mich antreibt" data-en="What Drives Me">Was mich antreibt</h2>
+                <div class="drive-content">
+                    <div class="drive-visual">
+                        <div class="drive-animation">
+                            <div class="drive-shape core"></div>
+                            <div class="drive-shape ring ring-1"></div>
+                            <div class="drive-shape ring ring-2"></div>
+                            <div class="drive-shape ring ring-3"></div>
+                        </div>
+                    </div>
+                    <div class="drive-text">
+                        <div class="drive-item">
+                            <h3 data-de="Analytische Tiefe" data-en="Analytical Depth">Analytische Tiefe</h3>
+                            <p data-de="Von der Entwicklung quantitativer Preismodelle bei zeb bis zur strategischen Wettbewerbsanalyse: Ich finde Klarheit in komplexen Daten." data-en="From developing quantitative pricing models at zeb to strategic competitor analysis: I find clarity in complex data.">
+                                Von der Entwicklung quantitativer Preismodelle bei zeb bis zur strategischen Wettbewerbsanalyse: Ich finde Klarheit in komplexen Daten.
+                            </p>
+                        </div>
+                        <div class="drive-item">
+                            <h3 data-de="Unternehmerisches Handeln" data-en="Entrepreneurial Action">Unternehmerisches Handeln</h3>
+                            <p data-de="Aus der Gründung meiner eigenen Webagentur schöpfe ich die Motivation, proaktiv Initiative zu ergreifen und nachhaltige Werte zu schaffen." data-en="From founding my own web agency, I draw the motivation to proactively take initiative and create sustainable value.">
+                                Aus der Gründung meiner eigenen Webagentur schöpfe ich die Motivation, proaktiv Initiative zu ergreifen und nachhaltige Werte zu schaffen.
+                            </p>
+                        </div>
+                        <div class="drive-item">
+                            <h3 data-de="Gelebte Verantwortung" data-en="Tangible Responsibility">Gelebte Verantwortung</h3>
+                            <p data-de="Ob als Finanzvorstand oder bei der ehrenamtlichen Nachhilfe in einem südafrikanischen Township: Ich glaube daran, dass Bildung und Engagement Perspektiven schaffen." data-en="Whether as a student union CFO or tutoring in a South African township: I believe that education and engagement create opportunities.">
+                                Ob als Finanzvorstand oder bei der ehrenamtlichen Nachhilfe in einem südafrikanischen Township: Ich glaube daran, dass Bildung und Engagement Perspektiven schaffen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why" class="why">
+            <div class="container">
+                <h2 class="section-title" data-de="Mein Profil auf einen Blick" data-en="My Profile at a Glance">Mein Profil auf einen Blick</h2>
+                <div class="why-grid">
+                    <div class="why-card analytical">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+</svg>
+                        </div>
+                        <h3 data-de="Analytisch" data-en="Analytical">Analytisch</h3>
+                        <p data-de="Entwicklung quantitativer Modelle und datengestützte Bewertung von Preisstrategien bei zeb." data-en="Development of quantitative models and data-driven evaluation of pricing strategies at zeb.">
+                            Entwicklung quantitativer Modelle und datengestützte Bewertung von Preisstrategien bei zeb.
+                        </p>
+                    </div>
+                    <div class="why-card creative">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-europe-africa" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M3.668 2.501l-.288.646a.847.847 0 0 0 1.479.815l.245-.368a.81.81 0 0 1 1.034-.275.81.81 0 0 0 .724 0l.261-.13a1 1 0 0 1 .775-.05l.984.34q.118.04.243.054c.784.093.855.377.694.801-.155.41-.616.617-1.035.487l-.01-.003C8.274 4.663 7.748 4.5 6 4.5 4.8 4.5 3.5 5.62 3.5 7c0 1.96.826 2.166 1.696 2.382.46.115.935.233 1.304.618.449.467.393 1.181.339 1.877C6.755 12.96 6.674 14 8.5 14c1.75 0 3-3.5 3-4.5 0-.262.208-.468.444-.7.396-.392.87-.86.556-1.8-.097-.291-.396-.568-.641-.756-.174-.133-.207-.396-.052-.551a.33.33 0 0 1 .42-.042l1.085.724c.11.072.255.058.348-.035.15-.15.415-.083.489.117.16.43.445 1.05.849 1.357L15 8A7 7 0 1 1 3.668 2.501"/>
+</svg>
+                        </div>
+                        <h3 data-de="Unternehmerisch" data-en="Entrepreneurial">Unternehmerisch</h3>
+                        <p data-de="Gründer einer Webagentur mit Geschäftsmodellentwicklung, Kundenakquise und Marketing." data-en="Founder of a web agency with business model development, client acquisition, and marketing.">
+                            Gründer einer Webagentur mit Geschäftsmodellentwicklung, Kundenakquise und Marketing.
+                        </p>
+                    </div>
+                    <div class="why-card collaborative">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cup-hot-fill" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6zM13 12.5a2 2 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5"/>
+  <path d="m4.4.8-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 3.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 3.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 3 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 4.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.253.382l-.018.025-.005.008-.002.002A.5.5 0 0 1 6.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 6.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 6 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 7.4.8m3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.06-.034.092-.037.103v.004a.6.6 0 0 0 .091.248c.075.133.178.272.308.445l.01.012c.118.158.26.347.37.543.112.2.22.455.22.745 0 .188-.065.368-.119.494a3 3 0 0 1-.202.388 5 5 0 0 1-.252.382l-.019.025-.005.008-.002.002A.5.5 0 0 1 9.6 4.2l.003-.004.014-.019a4 4 0 0 0 .204-.31 2 2 0 0 0 .141-.267c.026-.06.034-.092.037-.103a.6.6 0 0 0-.09-.252A4 4 0 0 0 9.6 2.8l-.01-.012a5 5 0 0 1-.37-.543A1.53 1.53 0 0 1 9 1.5c0-.188.065-.368.119-.494.059-.138.134-.274.202-.388a6 6 0 0 1 .253-.382l.025-.035A.5.5 0 0 1 10.4.8"/>
+</svg>
+                        </div>
+                        <h3 data-de="Kollaborativ" data-en="Collaborative">Kollaborativ</h3>
+                        <p data-de="Geprägt durch die Zusammenarbeit in diversen Projektteams und das Engagement als Schülersprecher." data-en="Shaped by collaboration in diverse project teams and engagement as a student representative.">
+                            Geprägt durch die Zusammenarbeit in diversen Projektteams und das Engagement als Schülersprecher.
+                        </p>
+                    </div>
+                    <div class="why-card adaptable">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pie-chart-fill" viewBox="0 0 16 16">
+  <path d="M15.985 8.5H8.207l-5.5 5.5a8 8 0 0 0 13.277-5.5zM2 13.292A8 8 0 0 1 7.5.015v7.778zM8.5.015V7.5h7.485A8 8 0 0 0 8.5.015"/>
+</svg>
+                        </div>
+                        <h3 data-de="Ergebnisorientiert" data-en="Results-Driven">Ergebnisorientiert</h3>
+                        <p data-de="Ausgezeichnet durch die Aufnahme in das Förderprogramm 'zeb.talents' für besondere Projektleistungen." data-en="Recognized through admission to the 'zeb.talents' program for special project achievements.">
+                            Ausgezeichnet durch die Aufnahme in das Förderprogramm 'zeb.talents' für besondere Projektleistungen.
+                        </p>
+                    </div>
+                </div>
+                <div class="why-now">
+                    <div class="now-visual">
+                        <div class="now-animation">
+                            <div class="pulse-ring"></div>
+                            <div class="pulse-ring delay-1"></div>
+                            <div class="pulse-ring delay-2"></div>
+                            <div class="pulse-center"></div>
+                        </div>
+                    </div>
+                    <div class="now-content">
+                        <h3 data-de="Bereit, einen Beitrag zu leisten" data-en="Ready to Make an Impact">Bereit, einen Beitrag zu leisten</h3>
+                        <p data-de="Ich bin überzeugt, dass meine analytischen Fähigkeiten, mein unternehmerischer Antrieb und meine in der Praxis bewiesene Leistungsbereitschaft einen messbaren Beitrag zu den Zielen Ihres Unternehmens leisten können." data-en="I am convinced that my analytical skills, my entrepreneurial drive, and my proven performance can make a measurable contribution to the goals of your company.">
+                            Ich bin überzeugt, dass meine analytischen Fähigkeiten, mein unternehmerischer Antrieb und meine in der Praxis bewiesene Leistungsbereitschaft einen messbaren Beitrag zu den Zielen Ihres Unternehmens leisten können.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title" data-de="Kontakt" data-en="Contact">Kontakt</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3 data-de="Lassen Sie uns sprechen" data-en="Let's Talk">Lassen Sie uns sprechen</h3>
+                        <p data-de="Ich freue mich auf einen Austausch über strategische Herausforderungen und wie ich Ihr Team unterstützen kann. Zögern Sie nicht, mich zu kontaktieren." data-en="I look forward to discussing strategic challenges and how I can support your team. Do not hesitate to contact me.">
+                            Ich freue mich auf einen Austausch über strategische Herausforderungen und wie ich Ihr Team unterstützen kann. Zögern Sie nicht, mich zu kontaktieren.
+                        </p>
+                        <div class="contact-methods">
+                            <a href="mailto:nils.hastrich@protonmail.com" class="contact-method">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-plus-fill method-icon" viewBox="0 0 16 16">
+  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 4.697v4.974A4.5 4.5 0 0 0 12.5 8a4.5 4.5 0 0 0-1.965.45l-.338-.207z"/>
+  <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5-2a.5.5 0 0 0-.5.5v1h-1a.5.5 0 0 0 0 1h1v1a.5.5 0 0 0 1 0v-1h1a.5.5 0 0 0 0-1h-1v-1a.5.5 0 0 0-.5-.5"/>
+</svg>
+                                <span>nils.hastrich@protonmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nils-hastrich-a64730212" target="_blank" rel="noopener noreferrer" class="contact-method">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin method-icon" viewBox="0 0 16 16">
+  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+</svg>
+                                <span>LinkedIn Profil</span>
+                            </a>
+                            <a href="tel:+491759501636" class="contact-method">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill method-icon" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/>
+</svg>
+                                <span>+49 175 9501636</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-visual">
+                        <div class="contact-3d">
+                            <div class="contact-shape primary"></div>
+                            <div class="contact-shape secondary"></div>
+                            <div class="contact-shape accent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p data-de="© 2025 Nils Hastrich" data-en="© 2025 Nils Hastrich">© 2025 Nils Hastrich</p>
+                <div class="footer-links">
+                    <a href="impressum.html" data-de="Impressum" data-en="Imprint">Impressum</a>
+                    <a href="privacy.html" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
