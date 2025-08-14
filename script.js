@@ -13,6 +13,7 @@ class WebsiteState {
         // this.initAnimations();
         this.initScrollEffects();
         this.initVideoBackground();
+        this.initBookshelf();
     }
 
     // Theme Management
@@ -82,6 +83,53 @@ class WebsiteState {
     toggleLanguage() {
         this.currentLang = this.currentLang === 'de' ? 'en' : 'de';
         this.applyLanguage();
+    }
+
+    // NEU: Logik für das Bücherregal
+    initBookshelf() {
+        const bookshelf = document.querySelector('.bookshelf');
+        const overlay = document.getElementById('bookshelf-overlay');
+        const closeButton = document.getElementById('overlay-close');
+        const titleElement = document.getElementById('overlay-title');
+        const descriptionElement = document.getElementById('overlay-description');
+
+        if (!bookshelf || !overlay || !closeButton || !titleElement || !descriptionElement) {
+            console.error('Bookshelf elements not found!');
+            return;
+        }
+
+        bookshelf.addEventListener('click', (event) => {
+            const item = event.target.closest('.shelf-item');
+            if (!item) return;
+
+            const lang = document.body.getAttribute('data-lang') || 'de';
+            
+            const title = item.getAttribute(`data-title-${lang}`);
+            const description = item.getAttribute(`data-description-${lang}`);
+            const type = item.getAttribute('data-type');
+
+            if (title && description && type) {
+                titleElement.textContent = `${type}: ${title}`;
+                descriptionElement.textContent = description;
+                overlay.classList.add('active');
+            }
+        });
+
+        const closeOverlay = () => {
+            overlay.classList.remove('active');
+        };
+
+        closeButton.addEventListener('click', closeOverlay);
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                closeOverlay();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && overlay.classList.contains('active')) {
+                closeOverlay();
+            }
+        });
     }
 
     // Event Listeners Setup
