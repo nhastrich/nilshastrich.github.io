@@ -610,3 +610,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+
+// ======================= Interaktive Weltkarte Logik =======================
+function initializeInteractiveMap() {
+    const points = document.querySelectorAll('.map-point');
+    const tooltip = document.getElementById('map-tooltip');
+    const mapContainer = document.querySelector('.map-container');
+
+    if (!mapContainer || !tooltip) return;
+
+    points.forEach(point => {
+        point.addEventListener('mouseenter', (event) => {
+            const lang = document.body.getAttribute('data-lang') || 'de';
+            const infoText = point.getAttribute(`data-info-${lang}`);
+            
+            tooltip.textContent = infoText;
+            tooltip.classList.add('visible');
+        });
+
+        point.addEventListener('mousemove', (event) => {
+            // Position des Tooltips relativ zum Map-Container anpassen
+            const rect = mapContainer.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            tooltip.style.left = `${x + 15}px`;
+            tooltip.style.top = `${y - 15}px`;
+        });
+
+        point.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('visible');
+        });
+    });
+}
+
+// Initialisiere die Karte, wenn das Dokument geladen ist
+// Wir fügen es erneut in einen DOMContentLoaded-Listener ein, um sicherzustellen, dass es läuft.
+document.addEventListener('DOMContentLoaded', initializeInteractiveMap);
