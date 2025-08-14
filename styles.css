@@ -1874,6 +1874,12 @@ section:not(:first-child)::before {
 }
 .dark-theme .record-label { background-color: #555; border-color: #ccc; }
 
+/* Überlappungs-Stil für Schallplatten */
+.record-overlap-left {
+    margin-left: -100px; /* Zieht das Element nach links */
+}
+
+
 /* Kassetten-Stil */
 .cassette {
     width: 100px;
@@ -1902,6 +1908,30 @@ section:not(:first-child)::before {
     background-color: #333;
     border-radius: 50%;
     border: 3px solid #ddd;
+}
+
+/* Zeitschriften-Stil */
+.magazine {
+    width: 140px;
+    height: 200px;
+}
+.magazine-cover {
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-bg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.magazine-title-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-text);
+    text-align: center;
+    line-height: 1.2;
 }
 
 /* Overlay-Stil */
