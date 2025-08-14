@@ -1810,10 +1810,12 @@ section:not(:first-child)::before {
 .shelf-item {
     cursor: pointer;
     transition: transform 0.3s ease-out;
+    position: relative; /* Hinzugefügt für z-index Kontext */
 }
 
 .shelf-item:hover {
     transform: translateY(-15px) scale(1.03);
+    z-index: 10; /* Stellt sicher, dass das gehoverte Element immer oben ist */
 }
 
 /* Buch-Stil */
@@ -1876,7 +1878,11 @@ section:not(:first-child)::before {
 
 /* Überlappungs-Stil für Schallplatten */
 .record-overlap-left {
-    margin-left: -100px; /* Zieht das Element nach links */
+    margin-left: -80px; /* Zieht das Element nach links für die Überlappung */
+    z-index: 1;         /* Standard-Stapeltiefe */
+}
+.record-overlap-left:hover {
+    z-index: 10; /* Beim Hovern nach ganz oben bringen */
 }
 
 
@@ -1910,7 +1916,7 @@ section:not(:first-child)::before {
     border: 3px solid #ddd;
 }
 
-/* Zeitschriften-Stil */
+/* Zeitschriften-Stil (Verbessert) */
 .magazine {
     width: 140px;
     height: 200px;
@@ -1918,20 +1924,25 @@ section:not(:first-child)::before {
 .magazine-cover {
     width: 100%;
     height: 100%;
-    background-color: var(--accent-bg);
-    border: 2px solid var(--border-color);
+    background: linear-gradient(rgba(255,255,255,0.05), rgba(0,0,0,0.05)), var(--accent-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.1);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 15px;
+    box-sizing: border-box;
 }
 .magazine-title-text {
     font-family: 'Crimson Text', serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--primary-text);
     text-align: center;
     line-height: 1.2;
+    border-bottom: 2px solid var(--primary-text);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 /* Overlay-Stil */
