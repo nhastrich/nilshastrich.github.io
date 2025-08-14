@@ -1791,15 +1791,15 @@ section:not(:first-child)::before {
 
 .shelf {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px; /* Etwas mehr Platz für die neuen Items */
     height: 15px;
     background: #6b4f3a; /* Holzfarbe */
     border-radius: 5px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-    gap: 20px;
+    justify-content: center; /* Zentriert die Gruppe von Items */
+    gap: 15px; /* Etwas kleinerer Abstand zwischen den Items */
     padding: 0 20px;
 }
 
@@ -1810,12 +1810,13 @@ section:not(:first-child)::before {
 .shelf-item {
     cursor: pointer;
     transition: transform 0.3s ease-out;
-    position: relative; /* Hinzugefügt für z-index Kontext */
+    position: relative; 
+    margin-bottom: 5px; /* Hebt alle Items leicht vom Regal an */
 }
 
 .shelf-item:hover {
     transform: translateY(-15px) scale(1.03);
-    z-index: 10; /* Stellt sicher, dass das gehoverte Element immer oben ist */
+    z-index: 10; 
 }
 
 /* Buch-Stil */
@@ -1878,12 +1879,11 @@ section:not(:first-child)::before {
 
 /* Überlappungs-Stil für Schallplatten */
 .record-overlap-left {
-    margin-left: -80px; /* Zieht das Element nach links für die Überlappung */
-    z-index: 1;         /* Standard-Stapeltiefe */
+    margin-left: -120px; /* Stärkere Überlappung */
 }
-.record-overlap-left:hover {
-    z-index: 10; /* Beim Hovern nach ganz oben bringen */
-}
+.record:nth-child(1) { z-index: 1; }
+.record:nth-child(2) { z-index: 2; }
+.record:nth-child(3) { z-index: 3; }
 
 
 /* Kassetten-Stil */
@@ -1916,7 +1916,7 @@ section:not(:first-child)::before {
     border: 3px solid #ddd;
 }
 
-/* Zeitschriften-Stil (Verbessert) */
+/* Zeitschriften-Stil */
 .magazine {
     width: 140px;
     height: 200px;
@@ -1944,6 +1944,11 @@ section:not(:first-child)::before {
     padding-bottom: 8px;
     margin-bottom: 10px;
 }
+
+/* Gruppen-Abstände */
+.magazine-group-start { margin-left: 20px; }
+.book-group-start { margin-left: 20px; }
+.cassette-group-start { margin-left: 20px; }
 
 /* Overlay-Stil */
 .bookshelf-overlay {

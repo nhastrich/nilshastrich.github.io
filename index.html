@@ -166,36 +166,49 @@
             </div>
         </section>
 
-<!-- ======================= Interaktives Bücherregal Section ======================= -->
+        <!-- ======================= Interaktives Bücherregal Section ======================= -->
         <section id="bookshelf" class="bookshelf-section">
             <div class="container">
                 <h2 class="section-title" data-de="Inspiration & Perspektiven" data-en="Inspiration & Perspectives">Inspiration & Perspektiven</h2>
                 <div class="bookshelf">
                     <!-- Regalbrett -->
                     <div class="shelf">
-                        <!-- Item 1: Zeitschrift -->
-                        <div class="shelf-item magazine" data-type="Magazin" data-title-de="The Economist" data-title-en="The Economist" data-description-de="Bietet fundierte Analysen zu globalen wirtschaftlichen und politischen Zusammenhängen – eine unverzichtbare Quelle, um über den Tellerrand zu blicken." data-description-en="Provides well-founded analyses of global economic and political contexts – an indispensable source for thinking outside the box.">
-                            <div class="magazine-cover">
-                                <div class="magazine-title-text">The Economist</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 2: Buch -->
-                        <div class="shelf-item book" data-type="Buch" data-title-de="Thinking, Fast and Slow" data-title-en="Thinking, Fast and Slow" data-description-de="Dieses Buch von Daniel Kahneman hat meine Herangehensweise an datengestützte Entscheidungen fundamental geprägt. Es zeigt eindrucksvoll die systematischen Grenzen unserer Intuition auf." data-description-en="This book by Daniel Kahneman fundamentally shaped my approach to data-driven decision-making. It impressively demonstrates the systematic limits of our intuition.">
-                            <div class="book-cover">
-                                <div class="book-spine"></div>
-                                <div class="book-title-text">Thinking, Fast and Slow</div>
-                            </div>
-                        </div>
-
-                        <!-- Item 3: Schallplatte -->
+                        <!-- Gruppe: Schallplatten -->
                         <div class="shelf-item record" data-type="Musik" data-title-de="Interstellar (Soundtrack) von Hans Zimmer" data-title-en="Interstellar (Soundtrack) by Hans Zimmer" data-description-de="Die Komplexität und emotionale Tiefe dieses Soundtracks inspiriert mich bei der Konzentration auf vielschichtige Probleme. Musik als Werkzeug für den Fokus." data-description-en="The complexity and emotional depth of this soundtrack inspire me when concentrating on multifaceted problems. Music as a tool for focus.">
                             <div class="record-sleeve">
                                 <div class="record-label"></div>
                             </div>
                         </div>
+                        <div class="shelf-item record record-overlap-left" data-type="Musik" data-title-de="The Dark Side of the Moon von Pink Floyd" data-title-en="The Dark Side of the Moon by Pink Floyd" data-description-de="Ein Konzeptalbum, das zeigt, wie einzelne Teile zu einem größeren, zusammenhängenden Ganzen werden können. Eine Erinnerung an die Wichtigkeit von Vision und Struktur." data-description-en="A concept album that shows how individual parts can become a larger, coherent whole. A reminder of the importance of vision and structure.">
+                            <div class="record-sleeve">
+                                <div class="record-label"></div>
+                            </div>
+                        </div>
+                        <div class="shelf-item record record-overlap-left" data-type="Musik" data-title-de="Dune (Soundtrack) von Hans Zimmer" data-title-en="Dune (Soundtrack) by Hans Zimmer" data-description-de="Ein Beispiel für die Schaffung einer völlig neuen Klangwelt. Es inspiriert dazu, bei Projekten über konventionelle Lösungen hinauszudenken und mutige, innovative Wege zu gehen." data-description-en="An example of creating an entirely new soundscape. It inspires thinking beyond conventional solutions in projects and taking bold, innovative paths.">
+                            <div class="record-sleeve">
+                                <div class="record-label"></div>
+                            </div>
+                        </div>
 
-                        <!-- Item 4: Buch -->
+                        <!-- Gruppe: Zeitschriften -->
+                        <div class="shelf-item magazine magazine-group-start" data-type="Magazin" data-title-de="The Economist" data-title-en="The Economist" data-description-de="Bietet fundierte Analysen zu globalen wirtschaftlichen und politischen Zusammenhängen – eine unverzichtbare Quelle, um über den Tellerrand zu blicken." data-description-en="Provides well-founded analyses of global economic and political contexts – an indispensable source for thinking outside the box.">
+                            <div class="magazine-cover">
+                                <div class="magazine-title-text">The Economist</div>
+                            </div>
+                        </div>
+                        <div class="shelf-item magazine" data-type="Magazin" data-title-de="Harvard Business Review" data-title-en="Harvard Business Review" data-description-de="Eine stetige Quelle für neue Management-Strategien, Fallstudien und Denkanstöße, die den Horizont erweitern und zum kritischen Denken anregen." data-description-en="A constant source of new management strategies, case studies, and food for thought that broadens horizons and encourages critical thinking.">
+                            <div class="magazine-cover">
+                                <div class="magazine-title-text">HBR</div>
+                            </div>
+                        </div>
+
+                        <!-- Gruppe: Bücher -->
+                        <div class="shelf-item book book-group-start" data-type="Buch" data-title-de="Thinking, Fast and Slow" data-title-en="Thinking, Fast and Slow" data-description-de="Dieses Buch von Daniel Kahneman hat meine Herangehensweise an datengestützte Entscheidungen fundamental geprägt. Es zeigt eindrucksvoll die systematischen Grenzen unserer Intuition auf." data-description-en="This book by Daniel Kahneman fundamentally shaped my approach to data-driven decision-making. It impressively demonstrates the systematic limits of our intuition.">
+                            <div class="book-cover">
+                                <div class="book-spine"></div>
+                                <div class="book-title-text">Thinking, Fast and Slow</div>
+                            </div>
+                        </div>
                         <div class="shelf-item book book-thin" data-type="Buch" data-title-de="The McKinsey Way" data-title-en="The McKinsey Way" data-description-de="Ein faszinierender Einblick in die strukturierte Problemlösung und effektive Kommunikation, der mein Interesse an der strategischen Beratung geweckt hat." data-description-en="A fascinating insight into structured problem-solving and effective communication that sparked my interest in strategic consulting.">
                             <div class="book-cover">
                                 <div class="book-spine"></div>
@@ -203,33 +216,12 @@
                             </div>
                         </div>
 
-                        <!-- Item 5: Schallplatte (überlappend) -->
-                        <div class="shelf-item record record-overlap-left" data-type="Musik" data-title-de="The Dark Side of the Moon von Pink Floyd" data-title-en="The Dark Side of the Moon by Pink Floyd" data-description-de="Ein Konzeptalbum, das zeigt, wie einzelne Teile zu einem größeren, zusammenhängenden Ganzen werden können. Eine Erinnerung an die Wichtigkeit von Vision und Struktur." data-description-en="A concept album that shows how individual parts can become a larger, coherent whole. A reminder of the importance of vision and structure.">
-                            <div class="record-sleeve">
-                                <div class="record-label"></div>
-                            </div>
-                        </div>
-
-                        <!-- Item 6: Kassette -->
-                        <div class="shelf-item cassette" data-type="Film" data-title-de="Der Marsianer" data-title-en="The Martian" data-description-de="Ein perfektes Beispiel für analytische Problemlösung unter extremem Druck. Zeigt, wie man mit Logik, Kreativität und begrenzten Ressourcen scheinbar unlösbare Herausforderungen meistert." data-description-en="A perfect example of analytical problem-solving under extreme pressure. Shows how to overcome seemingly unsolvable challenges with logic, creativity, and limited resources.">
+                        <!-- Gruppe: Film/Kassette -->
+                        <div class="shelf-item cassette cassette-group-start" data-type="Film" data-title-de="Der Marsianer" data-title-en="The Martian" data-description-de="Ein perfektes Beispiel für analytische Problemlösung unter extremem Druck. Zeigt, wie man mit Logik, Kreativität und begrenzten Ressourcen scheinbar unlösbare Herausforderungen meistert." data-description-en="A perfect example of analytical problem-solving under extreme pressure. Shows how to overcome seemingly unsolvable challenges with logic, creativity, and limited resources.">
                             <div class="cassette-body">
                                 <div class="cassette-label"></div>
                                 <div class="cassette-spool"></div>
                                 <div class="cassette-spool"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Item 7: Schallplatte (überlappend) -->
-                        <div class="shelf-item record record-overlap-left" data-type="Musik" data-title-de="Dune (Soundtrack) von Hans Zimmer" data-title-en="Dune (Soundtrack) by Hans Zimmer" data-description-de="Ein Beispiel für die Schaffung einer völlig neuen Klangwelt. Es inspiriert dazu, bei Projekten über konventionelle Lösungen hinauszudenken und mutige, innovative Wege zu gehen." data-description-en="An example of creating an entirely new soundscape. It inspires thinking beyond conventional solutions in projects and taking bold, innovative paths.">
-                            <div class="record-sleeve">
-                                <div class="record-label"></div>
-                            </div>
-                        </div>
-
-                        <!-- Item 8: Zeitschrift -->
-                        <div class="shelf-item magazine" data-type="Magazin" data-title-de="Harvard Business Review" data-title-en="Harvard Business Review" data-description-de="Eine stetige Quelle für neue Management-Strategien, Fallstudien und Denkanstöße, die den Horizont erweitern und zum kritischen Denken anregen." data-description-en="A constant source of new management strategies, case studies, and food for thought that broadens horizons and encourages critical thinking.">
-                            <div class="magazine-cover">
-                                <div class="magazine-title-text">HBR</div>
                             </div>
                         </div>
                     </div>
@@ -241,12 +233,10 @@
         <div id="bookshelf-overlay" class="bookshelf-overlay">
             <div class="overlay-content">
                 <button id="overlay-close" class="overlay-close">&times;</button>
-                <h3 id="overlay-title"></h3>
-                <p id="overlay-description"></p>
+                <h3 id="overlay-title">Platzhalter Titel</h3>
+                <p id="overlay-description">Dies ist ein Platzhaltertext. Klicken Sie auf ein Element im Regal, um die Beschreibung hier anzuzeigen.</p>
             </div>
         </div>
-
-
 
 
         <section id="moments" class="moments">
