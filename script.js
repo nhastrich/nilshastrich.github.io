@@ -611,40 +611,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// ======================= Interaktives Bücherregal Logik =======================
+function initializeBookshelf() {
+    const bookshelf = document.querySelector('.bookshelf');
+    const overlay = document.getElementById('bookshelf-overlay');
+    const closeButton = document.getElementById('overlay-close');
+    const titleElement = document.getElementById('overlay-title');
+    const descriptionElement = document.getElementById('overlay-description');
 
-// ======================= Interaktive Weltkarte Logik =======================
-function initializeInteractiveMap() {
-    const points = document.querySelectorAll('.map-point');
-    const tooltip = document.getElementById('map-tooltip');
-    const mapContainer = document.querySelector('.map-container');
+    if (!bookshelf || !overlay) return;
 
-    if (!mapContainer || !tooltip) return;
+    // Event Delegation für Klicks auf die Items
+    bookshelf.addEventListener('click', (event) => {
+        const item = event.target.closest('.shelf-item');
+        if (!item) return;
 
-    points.forEach(point => {
-        point.addEventListener('mouseenter', (event) => {
-            const lang = document.body.getAttribute('data-lang') || 'de';
-            const infoText = point.getAttribute(`data-info-${lang}`);
-            
-            tooltip.textContent = infoText;
-            tooltip.classList.add('visible');
-        });
+        const lang = document.body.getAttribute('data-lang') || 'de';
+        const title = item.dataset[`title-${lang}`];
+        const description = item.dataset[`description-${lang}`];
+        const type = item.dataset.type;
 
-        point.addEventListener('mousemove', (event) => {
-            // Position des Tooltips relativ zum Map-Container anpassen
-            const rect = mapContainer.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+        titleElement.textContent = `${type}: ${title}`;
+        descriptionElement.textContent = description;
 
-            tooltip.style.left = `${x + 15}px`;
-            tooltip.style.top = `${y - 15}px`;
-        });
+        overlay.classList.add('active');
+    });
 
-        point.addEventListener('mouseleave', () => {
-            tooltip.classList.remove('visible');
-        });
+    // Funktion zum Schließen des Overlays
+    const closeOverlay = () => {
+        overlay.classList.remove('active');
+    };
+
+    closeButton.addEventListener('click', closeOverlay);
+    
+    // Schließen bei Klick auf den Hintergrund
+    overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    });
+
+    // Schließen bei Drücken der Escape-Taste
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && overlay.classList.contains('active')) {
+            closeOverlay();
+        }
     });
 }
 
-// Initialisiere die Karte, wenn das Dokument geladen ist
-// Wir fügen es erneut in einen DOMContentLoaded-Listener ein, um sicherzustellen, dass es läuft.
-document.addEventListener('DOMContentLoaded', initializeInteractiveMap);
+// Initialisiere das Bücherregal, wenn das Dokument geladen ist.
+document.addEventListener('DOMContentLoaded', initializeBookshelf);

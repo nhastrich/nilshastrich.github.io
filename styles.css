@@ -1775,80 +1775,192 @@ section:not(:first-child)::before {
     to { opacity: 1; transform: scale(1); }
 }
 
-/* ======================= Interaktive Weltkarte Styles ======================= */
-
-.experience-map {
+/* ======================= Interaktives Bücherregal Styles ======================= */
+.bookshelf-section {
     background: var(--secondary-bg);
     padding: 4rem 0;
 }
 
-.map-container {
-    position: relative;
+.bookshelf {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.shelf {
     width: 100%;
-    max-width: 1000px; /* Maximale Breite der Karte */
-    margin: 2rem auto 0;
-    padding-bottom: 50%; /* Sorgt für das korrekte 2:1 Seitenverhältnis */
-    height: 0;
+    max-width: 800px;
+    height: 15px;
+    background: #6b4f3a; /* Holzfarbe */
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
 }
 
-.world-map-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.dark-theme .shelf {
+    background: #4a3728;
 }
 
-/* Farbe der Weltkarte an das Theme anpassen */
-.light-theme .world-map-svg path {
-    fill: #e0e0e0;
-}
-.dark-theme .world-map-svg path {
-    fill: #3a3a3a;
-}
-
-.map-points {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.map-point {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background-color: var(--highlight-color);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
+.shelf-item {
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 10;
+    transition: transform 0.3s ease-out;
 }
 
-.map-point:hover {
-    transform: translate(-50%, -50%) scale(1.5);
-    box-shadow: 0 0 15px var(--highlight-color);
+.shelf-item:hover {
+    transform: translateY(-15px) scale(1.03);
 }
 
-.map-tooltip {
+/* Buch-Stil */
+.book {
+    width: 45px;
+    height: 180px;
+}
+.book.book-thin { width: 30px; }
+.book-cover {
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 2px 4px 4px 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.book-spine {
     position: absolute;
-    background-color: var(--primary-bg);
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+}
+.book-title-text {
+    font-size: 14px;
+    font-weight: 600;
     color: var(--primary-text);
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    z-index: 20;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    white-space: nowrap;
+    opacity: 0.7;
+}
+
+/* Schallplatten-Stil */
+.record {
+    width: 160px;
+    height: 160px;
+}
+.record-sleeve {
+    width: 100%;
+    height: 100%;
+    background-color: var(--accent-bg);
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.record-label {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 10px solid #333;
+    background-color: #eee;
+}
+.dark-theme .record-label { background-color: #555; border-color: #ccc; }
+
+/* Kassetten-Stil */
+.cassette {
+    width: 100px;
+    height: 65px;
+}
+.cassette-body {
+    width: 100%;
+    height: 100%;
+    background-color: #f0eada;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+}
+.cassette-label {
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+.cassette-spool {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
+    border-radius: 50%;
+    border: 3px solid #ddd;
+}
+
+/* Overlay-Stil */
+.bookshelf-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
-    pointer-events: none; /* Wichtig, damit der Tooltip nicht das Hovern stört */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.map-tooltip.visible {
+.bookshelf-overlay.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(-10px); /* Leichte Animation nach oben */
+}
+
+.overlay-content {
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.bookshelf-overlay.active .overlay-content {
+    transform: scale(1);
+}
+
+.overlay-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--accent-text);
+    cursor: pointer;
+}
+
+.overlay-content h3 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.overlay-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
