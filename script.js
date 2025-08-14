@@ -681,10 +681,10 @@ class WebsiteState {
         bookshelf.addEventListener('click', (event) => {
             const item = event.target.closest('.shelf-item');
             if (!item) return;
-
-            const lang = this.currentLang;
             
-            // KORRIGIERT: Direkter Zugriff mit getAttribute() ist zuverlässiger
+            // KORRIGIERT: Liest die Sprache direkt vom body-Tag aus. Das ist die zuverlässigste Methode.
+            const lang = document.body.getAttribute('data-lang') || 'de';
+            
             const title = item.getAttribute(`data-title-${lang}`);
             const description = item.getAttribute(`data-description-${lang}`);
             const type = item.getAttribute('data-type');
