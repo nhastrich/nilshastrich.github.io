@@ -627,8 +627,8 @@ function initializeBookshelf() {
         if (!item) return;
 
         const lang = document.body.getAttribute('data-lang') || 'de';
-        const title = item.dataset[`title-${lang}`];
-        const description = item.dataset[`description-${lang}`];
+        const title = item.dataset[`title${lang.toUpperCase()}`];
+        const description = item.dataset[`description${lang.toUpperCase()}`];
         const type = item.dataset.type;
 
         titleElement.textContent = `${type}: ${title}`;
