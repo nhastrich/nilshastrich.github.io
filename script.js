@@ -788,7 +788,7 @@ class WebsiteState {
     initVideoBackground() {
         // Hier könnte Logik für das Video stehen, falls benötigt
     }
-}
+
 
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
