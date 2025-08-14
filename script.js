@@ -611,3 +611,221 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Global State Management
+class WebsiteState {
+    constructor() {
+        this.currentTheme = localStorage.getItem('theme') || 'dark';
+        this.currentLang = localStorage.getItem('language') || 'de';
+        this.init();
+    }
+
+    init() {
+        this.applyTheme();
+        this.applyLanguage();
+        this.setupEventListeners();
+        this.initScrollEffects();
+        this.initVideoBackground();
+        this.initBookshelf(); // Hinzugefügt: Initialisiert das Bücherregal
+    }
+
+    // Theme Management
+    applyTheme() {
+        document.body.className = document.body.className.replace(/\b(light|dark)-theme\b/g, '').trim();
+        document.body.classList.add(`${this.currentTheme}-theme`);
+        localStorage.setItem('theme', this.currentTheme);
+        
+        const header = document.querySelector('.header');
+        if (header) {
+            const scrollY = window.scrollY;
+            if (scrollY > 100) {
+                header.style.background = this.currentTheme === 'light' 
+                    ? 'rgba(255, 255, 255, 1)' 
+                    : 'rgba(26, 26, 26, 1)';
+            } else {
+                header.style.background = this.currentTheme === 'light' 
+                    ? 'rgba(255, 255, 255, 0.98)' 
+                    : 'rgba(26, 26, 26, 0.98)';
+            }
+        }
+    }
+
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme();
+    }
+
+    // Language Management
+    applyLanguage() {
+        document.body.setAttribute('data-lang', this.currentLang);
+        localStorage.setItem('language', this.currentLang);
+        
+        const elements = document.querySelectorAll('[data-de][data-en]');
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${this.currentLang}`);
+            if (text) {
+                element.textContent = text;
+            }
+        });
+
+        const langOptions = document.querySelectorAll('.lang-option');
+        langOptions.forEach(option => {
+            option.classList.remove('active');
+            if (option.textContent.toLowerCase() === this.currentLang) {
+                option.classList.add('active');
+            }
+        });
+    }
+
+    toggleLanguage() {
+        this.currentLang = this.currentLang === 'de' ? 'en' : 'de';
+        this.applyLanguage();
+    }
+    
+    // NEU: Logik für das Bücherregal
+    initBookshelf() {
+        const bookshelf = document.querySelector('.bookshelf');
+        const overlay = document.getElementById('bookshelf-overlay');
+        const closeButton = document.getElementById('overlay-close');
+        const titleElement = document.getElementById('overlay-title');
+        const descriptionElement = document.getElementById('overlay-description');
+
+        if (!bookshelf || !overlay || !closeButton || !titleElement || !descriptionElement) {
+            console.error('Bookshelf elements not found!');
+            return;
+        }
+
+        bookshelf.addEventListener('click', (event) => {
+            const item = event.target.closest('.shelf-item');
+            if (!item) return;
+
+            const lang = document.body.getAttribute('data-lang') || 'de';
+            
+            const title = item.getAttribute(`data-title-${lang}`);
+            const description = item.getAttribute(`data-description-${lang}`);
+            const type = item.getAttribute('data-type');
+
+            if (title && description && type) {
+                titleElement.textContent = `${type}: ${title}`;
+                descriptionElement.textContent = description;
+                overlay.classList.add('active');
+            }
+        });
+
+        const closeOverlay = () => {
+            overlay.classList.remove('active');
+        };
+
+        closeButton.addEventListener('click', closeOverlay);
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                closeOverlay();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && overlay.classList.contains('active')) {
+                closeOverlay();
+            }
+        });
+    }
+
+    // Event Listeners Setup
+    setupEventListeners() {
+        // Theme toggles
+        const themeToggles = document.querySelectorAll('#themeToggle, #mobileThemeToggle');
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => this.toggleTheme());
+        });
+
+        // Language toggles
+        const langToggles = document.querySelectorAll('#langToggle, #mobileLangToggle');
+        langToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => this.toggleLanguage());
+        });
+
+        // Smooth scrolling for navigation
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .cta-primary, .cta-secondary');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+
+        window.addEventListener('scroll', () => this.handleScroll());
+    }
+
+    // Scroll Effects
+    initScrollEffects() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const elementsToAnimate = document.querySelectorAll('.timeline-content, .moment-card, .why-card');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+    }
+    
+    handleScroll() {
+        const header = document.querySelector('.header');
+        if (!header) return;
+        const scrollY = window.scrollY;
+
+        if (scrollY > 100) {
+            header.style.background = this.currentTheme === 'light' 
+                ? 'rgba(255, 255, 255, 1)' 
+                : 'rgba(26, 26, 26, 1)';
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = this.currentTheme === 'light' 
+                ? 'rgba(255, 255, 255, 0.98)' 
+                : 'rgba(26, 26, 26, 0.98)';
+            header.style.boxShadow = 'none';
+        }
+    }
+
+    // Video Background Management
+    initVideoBackground() {
+        // Placeholder for video logic if needed
+    }
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new WebsiteState();
+});
