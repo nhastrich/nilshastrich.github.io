@@ -611,53 +611,190 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ======================= Interaktives Bücherregal Logik =======================
-function initializeBookshelf() {
-    const bookshelf = document.querySelector('.bookshelf');
-    const overlay = document.getElementById('bookshelf-overlay');
-    const closeButton = document.getElementById('overlay-close');
-    const titleElement = document.getElementById('overlay-title');
-    const descriptionElement = document.getElementById('overlay-description');
+// Global State Management
+class WebsiteState {
+    constructor() {
+        this.currentTheme = localStorage.getItem('theme') || 'dark'; // Standard-Theme ist jetzt 'dark'
+        this.currentLang = localStorage.getItem('language') || 'de';
+        this.init();
+    }
 
-    if (!bookshelf || !overlay) return;
+    init() {
+        this.applyTheme();
+        this.applyLanguage();
+        this.setupEventListeners();
+        // this.initAnimations(); // Wurde entfernt, da jetzt in CSS
+        this.initScrollEffects();
+        this.initVideoBackground();
+        this.initBookshelf(); // NEU: Initialisiert das Bücherregal
+    }
 
-    // Event Delegation für Klicks auf die Items
-    bookshelf.addEventListener('click', (event) => {
-        const item = event.target.closest('.shelf-item');
-        if (!item) return;
+    // Theme Management
+    applyTheme() {
+        document.body.className = document.body.className.replace(/\b(light|dark)-theme\b/g, '').trim();
+        document.body.classList.add(`${this.currentTheme}-theme`);
+        localStorage.setItem('theme', this.currentTheme);
+    }
 
-        const lang = document.body.getAttribute('data-lang') || 'de';
-        const title = item.dataset[`title${lang.toUpperCase()}`];
-        const description = item.dataset[`description${lang.toUpperCase()}`];
-        const type = item.dataset.type;
+    toggleTheme() {
+        this.currentTheme = this.currentTheme === 'light' ? 'dark' : 'light';
+        this.applyTheme();
+    }
 
-        titleElement.textContent = `${type}: ${title}`;
-        descriptionElement.textContent = description;
+    // Language Management
+    applyLanguage() {
+        document.body.setAttribute('data-lang', this.currentLang);
+        localStorage.setItem('language', this.currentLang);
+        
+        const elements = document.querySelectorAll('[data-de][data-en]');
+        elements.forEach(element => {
+            const text = element.getAttribute(`data-${this.currentLang}`);
+            if (text) {
+                element.textContent = text;
+            }
+        });
 
-        overlay.classList.add('active');
-    });
+        const langOptions = document.querySelectorAll('.lang-option');
+        langOptions.forEach(option => {
+            option.classList.remove('active');
+            if (option.textContent.toLowerCase() === this.currentLang) {
+                option.classList.add('active');
+            }
+        });
+    }
 
-    // Funktion zum Schließen des Overlays
-    const closeOverlay = () => {
-        overlay.classList.remove('active');
-    };
-
-    closeButton.addEventListener('click', closeOverlay);
+    toggleLanguage() {
+        this.currentLang = this.currentLang === 'de' ? 'en' : 'de';
+        this.applyLanguage();
+    }
     
-    // Schließen bei Klick auf den Hintergrund
-    overlay.addEventListener('click', (event) => {
-        if (event.target === overlay) {
-            closeOverlay();
-        }
-    });
+    // NEU: Logik für das Bücherregal
+    initBookshelf() {
+        const bookshelf = document.querySelector('.bookshelf');
+        const overlay = document.getElementById('bookshelf-overlay');
+        const closeButton = document.getElementById('overlay-close');
+        const titleElement = document.getElementById('overlay-title');
+        const descriptionElement = document.getElementById('overlay-description');
 
-    // Schließen bei Drücken der Escape-Taste
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && overlay.classList.contains('active')) {
-            closeOverlay();
+        if (!bookshelf || !overlay) return;
+
+        bookshelf.addEventListener('click', (event) => {
+            const item = event.target.closest('.shelf-item');
+            if (!item) return;
+
+            const lang = this.currentLang;
+            
+            // KORRIGIERT: Direkter Zugriff mit getAttribute() ist zuverlässiger
+            const title = item.getAttribute(`data-title-${lang}`);
+            const description = item.getAttribute(`data-description-${lang}`);
+            const type = item.getAttribute('data-type');
+
+            if (title && description && type) {
+                titleElement.textContent = `${type}: ${title}`;
+                descriptionElement.textContent = description;
+                overlay.classList.add('active');
+            }
+        });
+
+        const closeOverlay = () => {
+            overlay.classList.remove('active');
+        };
+
+        closeButton.addEventListener('click', closeOverlay);
+        overlay.addEventListener('click', (event) => {
+            if (event.target === overlay) {
+                closeOverlay();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && overlay.classList.contains('active')) {
+                closeOverlay();
+            }
+        });
+    }
+
+
+    // Event Listeners Setup
+    setupEventListeners() {
+        // ... (Ihr bestehender Code für Event Listeners bleibt hier)
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => this.toggleTheme());
         }
-    });
+
+        // Language toggle
+        const langToggle = document.getElementById('langToggle');
+        if (langToggle) {
+            langToggle.addEventListener('click', () => this.toggleLanguage());
+        }
+
+        // Smooth scrolling for navigation
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link, .cta-primary, .cta-secondary');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    // Menü schließen, falls es offen ist
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+        }
+    }
+
+    // Scroll Effects
+    initScrollEffects() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target); // Animation nur einmal abspielen
+                }
+            });
+        }, observerOptions);
+
+        const elementsToAnimate = document.querySelectorAll('.timeline-content, .moment-card, .why-card');
+        elementsToAnimate.forEach(el => {
+            observer.observe(el);
+        });
+    }
+    
+    // ... (Ihr restlicher Code für Video, etc. bleibt hier)
+    initVideoBackground() {
+        // ...
+    }
 }
 
-// Initialisiere das Bücherregal, wenn das Dokument geladen ist.
-document.addEventListener('DOMContentLoaded', initializeBookshelf);
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new WebsiteState();
+    console.log('Website initialized successfully!');
+});
