@@ -2006,3 +2006,27 @@ section:not(:first-child)::before {
     font-size: 1.1rem;
     line-height: 1.6;
 }
+
+/* ======================= Bücherregal Mobile Optimierung ======================= */
+
+@media (max-width: 768px) {
+    .shelf {
+        gap: 5px; /* Reduziert den Standard-Abstand zwischen allen Elementen */
+    }
+
+    /* Reduziert die Gruppen-Abstände auf Mobilgeräten */
+    .podcast-group-start,
+    .book-group-start,
+    .cassette-group-start {
+        margin-left: 10px;
+    }
+
+    /* Lässt den zweiten Podcast überlappen */
+    .podcast-overlap-left {
+        margin-left: -80px;
+    }
+    
+    /* Stellt die Stapelreihenfolge der Podcasts sicher */
+    .podcast:nth-of-type(4) { z-index: 2; }
+    .podcast:nth-of-type(5) { z-index: 1; }
+}
