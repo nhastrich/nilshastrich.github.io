@@ -1883,9 +1883,17 @@ section:not(:first-child)::before {
 .record-overlap-left {
     margin-left: -120px;
 }
-.record:nth-child(1) { z-index: 3; }
-.record:nth-child(2) { z-index: 2; }
-.record:nth-child(3) { z-index: 1; }
+
+/* KORRIGIERTE Z-INDEX STAPELREIHENFOLGE */
+/* Von rechts (niedrig) nach links (hoch), damit Überlappungen korrekt sind */
+.shelf-item:nth-child(8) { z-index: 1; } /* Kassette (ganz rechts) */
+.shelf-item:nth-child(7) { z-index: 2; } /* Buch */
+.shelf-item:nth-child(6) { z-index: 3; } /* Buch */
+.shelf-item:nth-child(5) { z-index: 4; } /* Podcast */
+.shelf-item:nth-child(4) { z-index: 5; } /* Podcast */
+.shelf-item:nth-child(3) { z-index: 6; } /* Schallplatte */
+.shelf-item:nth-child(2) { z-index: 7; } /* Schallplatte */
+.shelf-item:nth-child(1) { z-index: 8; } /* Schallplatte (ganz links) */
 
 
 /* Kassetten-Stil */
@@ -2012,6 +2020,8 @@ section:not(:first-child)::before {
 @media (max-width: 768px) {
     .shelf {
         gap: 5px; /* Reduziert den Standard-Abstand zwischen allen Elementen */
+        justify-content: space-around; /* DIESE ZEILE HINZUFÜGEN */
+
     }
 
     /* Reduziert die Gruppen-Abstände auf Mobilgeräten */
