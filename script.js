@@ -166,7 +166,7 @@ class WebsiteState {
         const ctaPrimary = document.querySelector('.cta-primary');
         if (ctaPrimary) {
             ctaPrimary.addEventListener('click', () => {
-                document.querySelector('#journey').scrollIntoView({
+                document.querySelector('#recommendations').scrollIntoView({
                     behavior: 'smooth'
                 });
             });
